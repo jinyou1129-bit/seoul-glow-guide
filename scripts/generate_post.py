@@ -72,6 +72,7 @@ def render_post(day, heading, tip):
 </article>
 </main>
 {FOOT.format(p='../')}
+<script src="../engage.js" defer></script>
 </body>
 </html>
 """
@@ -106,6 +107,7 @@ def render_archive(entries):
 </article>
 </main>
 {FOOT.format(p='./')}
+<script src="./engage.js" defer></script>
 </body>
 </html>
 """
@@ -151,6 +153,11 @@ def main():
            + ''.join(f'<url><loc>{BASE}{page}</loc></url>\n' for page in pages)
            + '</urlset>\n')
     (ROOT / 'sitemap.xml').write_text(xml, encoding='utf-8')
+    try:
+        import add_engage
+        add_engage.main()
+    except Exception as exc:  # never fail the daily publish over the blocks
+        print('engage blocks not refreshed:', exc)
     print('Archive, latest list and sitemap updated')
 
 
