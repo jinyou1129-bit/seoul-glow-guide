@@ -50,7 +50,7 @@ def render_post(day, heading, tip):
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description, quote=True)}">
 {head_tags(rel, title, description, DEFAULT_IMAGE)}
-<link rel="stylesheet" href="../style.css?v=20261120b">
+<link rel="stylesheet" href="../style.css?v=20261120c">
 </head>
 <body>
 <header><div class="nav wrap"><a class="brand" href="../">✿ Seoul Glow Guide</a>{NAV.format(p='../')}</div></header>
@@ -91,7 +91,7 @@ def render_archive(entries):
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description, quote=True)}">
 {head_tags('articles.html', title, description, DEFAULT_IMAGE)}
-<link rel="stylesheet" href="style.css?v=20261120b">
+<link rel="stylesheet" href="style.css?v=20261120c">
 </head>
 <body>
 <header><div class="nav wrap"><a class="brand" href="./">✿ Seoul Glow Guide</a>{NAV.format(p='./')}</div></header>
