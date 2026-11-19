@@ -1,1 +1,129 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A practical K-beauty and Olive Young guide for Seoul visitors."><title>Seoul Glow Guide | K-Beauty for Travelers</title><link rel="stylesheet" href="style.css?v=20261119"><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can tourists get a tax refund at Olive Young?","acceptedAnswer":{"@type":"Answer","text":"Eligible visitors may be able to claim a refund on qualifying purchases at participating stores. Bring your passport and confirm current rules and minimums with the store and Korean customs."}},{"@type":"Question","name":"How do I ask for skincare help in Korea?","acceptedAnswer":{"@type":"Answer","text":"Show store staff a Korean flashcard describing your skin type and the product you need."}}]}</script></head><body><header><div class="nav wrap"><a class="brand" href="./">✿ Seoul Glow Guide</a><nav><a href="#guides">Guides</a><a href="#converter">Currency</a><a href="#faq">FAQ</a></nav><label>Language <select id="language"><option value="en">English</option><option value="ja">日本語</option><option value="zh-CN">中文</option><option value="es">Español</option><option value="fr">Français</option></select></label></div></header><main><section class="hero"><div class="wrap"><p class="eyebrow">YOUR SEOUL BEAUTY COMPANION</p><h1>The Foreigner's Survival Guide to Olive Young &amp; K-Beauty</h1><p>Shop smarter, find your routine, and make the most of your Seoul trip—without the language barrier.</p><a class="button" href="#guides">Explore the guides →</a></div></section><section class="wrap" id="guides"><p class="eyebrow">THE EDIT</p><h2>Your beauty journey starts here</h2><div class="cards"><a class="card featured-card" href="top-10-olive-young-skincare-must-buys.html"><div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=1400&amp;q=85" alt="A skincare bottle on a pastel backdrop" loading="lazy"></div><span>THE 2026 BEAUTY EDIT</span><h3>Top 10 Cult-Favorite Skincare Products at Olive Young</h3><p>Ten skincare picks, indicative prices and Korean names to show staff.</p><b>Read the guide →</b></a><a class="card" href="olive-young-tax-refund-and-shopping-guide.html"><div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1400&amp;q=85" alt="An assortment of skincare and beauty products" loading="lazy"></div><span>01 / SHOP SMARTER</span><h3>Olive Young Tax Refund &amp; Shopping Formula</h3><p>Passport, refund questions, and a practical shopping checklist.</p><b>Read guide →</b></a><a class="card" href="top-k-beauty-products.html"><div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=1400&amp;q=85" alt="Skincare bottles and jars" loading="lazy"></div><span>02 / THE BEAUTY SHELF</span><h3>Top 10 Cult-Favorite K-Beauty Products</h3><p>Explore products from Torriden, Anua, Beauty of Joseon and more.</p><b>Explore products →</b></a><a class="card" href="korean-skincare-flashcards.html"><div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1400&amp;q=85" alt="A skincare cleanser tube" loading="lazy"></div><span>03 / SHOW TO STAFF</span><h3>Skincare Shopping Korean Flashcards</h3><p>Useful phrases for your skin type and shopping questions.</p><b>Open flashcards →</b></a></div></section><section class="wrap" id="converter"><div class="converter"><p class="eyebrow">THE TRAVEL TOOLKIT</p><h2>Currency converter</h2><p>Indicative rates, not the rate your card or exchange counter will charge.</p><div class="currency"><label>Amount <input id="amount" type="number" min="0" step="any" value="10000"></label><label>From <select id="from"><option>KRW</option><option>USD</option><option>JPY</option></select></label><label>To <select id="to"><option>USD</option><option>KRW</option><option>JPY</option></select></label><button id="swap" type="button">⇄ Swap</button></div><p id="result" aria-live="polite">Loading rates…</p><small id="rate-note"></small></div></section><section class="wrap" id="latest"><p class="eyebrow">FRESH FROM SEOUL</p><h2>Latest guides</h2><div id="post-list"><!-- POSTS_START --><ul><li><a href="posts/2026-11-19.html">Ampoule: a Seoul shopping checklist</a> · 2026-11-19</li></ul><!-- POSTS_END --></div><p><a href="articles.html">Browse all guides →</a></p></section><section class="wrap" id="faq"><h2>Frequently asked questions</h2><details><summary>Can tourists get a tax refund at Olive Young?</summary><p>Eligible visitors may be able to claim a refund on qualifying purchases at participating stores. Bring your passport and confirm current rules and minimums with the store and Korean customs.</p></details><details><summary>How do I ask for skincare help in Korea?</summary><p>Show store staff a Korean flashcard describing your skin type and the product you need.</p></details></section></main><footer><div class="wrap">✿ Seoul Glow Guide · Independent traveler resource. Not affiliated with Olive Young. Information can change; confirm details with official sources.</div></footer><script>const amount=document.querySelector('#amount'),from=document.querySelector('#from'),to=document.querySelector('#to'),result=document.querySelector('#result'),note=document.querySelector('#rate-note');let rates=null;function calculate(){if(!rates)return;let n=Number(amount.value);result.textContent=Number.isFinite(n)&&n>=0?`${new Intl.NumberFormat(undefined,{maximumFractionDigits:2}).format(n*rates[to.value]/rates[from.value])} ${to.value}`:'Enter a valid amount.'}fetch('https://open.er-api.com/v6/latest/KRW').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(d.result!=='success'||!d.rates?.USD||!d.rates?.JPY)throw Error();rates=d.rates;note.textContent='Indicative rates via ExchangeRate-API · updated '+d.time_last_update_utc;calculate()}).catch(()=>{result.textContent='Rates unavailable. Please try again later.'});[amount,from,to].forEach(e=>e.addEventListener('input',calculate));document.querySelector('#swap').addEventListener('click',()=>{let x=from.value;from.value=to.value;to.value=x;calculate()});document.querySelector('#language').addEventListener('change',e=>{if(e.target.value!=='en')location.href='https://translate.google.com/translate?sl=en&tl='+encodeURIComponent(e.target.value)+'&u='+encodeURIComponent(location.href)});</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seoul Glow Guide | K-Beauty for Travelers</title>
+<link rel="stylesheet" href="style.css?v=20261120">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can tourists get a tax refund at Olive Young?","acceptedAnswer":{"@type":"Answer","text":"Eligible visitors may be able to claim a refund on qualifying purchases at participating stores. Bring your passport and confirm current rules and minimums with the store and Korean customs."}},{"@type":"Question","name":"How do I ask for skincare help in Korea?","acceptedAnswer":{"@type":"Answer","text":"Show store staff a Korean flashcard describing your skin type and the product you need."}}]}</script><meta name="description" content="A practical K-beauty and Olive Young guide for Seoul visitors: what to buy, how tax refunds work and Korean phrases to show store staff."><link rel="canonical" href="https://jinyou1129-bit.github.io/seoul-glow-guide/"><meta property="og:type" content="website"><meta property="og:site_name" content="Seoul Glow Guide"><meta property="og:locale" content="en_US"><meta property="og:title" content="Seoul Glow Guide | K-Beauty for Travelers"><meta property="og:description" content="A practical K-beauty and Olive Young guide for Seoul visitors: what to buy, how tax refunds work and Korean phrases to show store staff."><meta property="og:url" content="https://jinyou1129-bit.github.io/seoul-glow-guide/"><meta property="og:image" content="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Seoul Glow Guide | K-Beauty for Travelers"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Seoul Glow Guide | K-Beauty for Travelers"><meta name="twitter:description" content="A practical K-beauty and Olive Young guide for Seoul visitors: what to buy, how tax refunds work and Korean phrases to show store staff."><meta name="twitter:image" content="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"></head>
+<body>
+<header>
+<div class="nav wrap">
+<a class="brand" href="./">✿ Seoul Glow Guide</a>
+<nav>
+<a href="./index.html#guides">Guides</a>
+<a href="./articles.html">All guides</a>
+<a href="./about.html">About</a>
+<a href="./contact.html">Contact</a>
+</nav>
+<label class="lang"><span class="lang-text">Language</span> <select id="language">
+<option value="en">English</option>
+<option value="ja">日本語</option>
+<option value="zh-CN">中文</option>
+<option value="es">Español</option>
+<option value="fr">Français</option>
+</select>
+</label>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<p class="eyebrow">YOUR SEOUL BEAUTY COMPANION</p>
+<h1>The Foreigner's Survival Guide to Olive Young &amp; K-Beauty</h1>
+<p>Shop smarter, find your routine, and make the most of your Seoul trip—without the language barrier.</p>
+<a class="button" href="#guides">Explore the guides →</a>
+</div>
+</section>
+<section class="wrap" id="guides">
+<p class="eyebrow">THE EDIT</p>
+<h2>Your beauty journey starts here</h2>
+<div class="cards">
+<a class="card featured-card" href="top-10-olive-young-skincare-must-buys.html">
+<div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=1400&amp;q=85" alt="A skincare bottle on a pastel backdrop" loading="lazy"></div>
+<span>THE 2026 BEAUTY EDIT</span>
+<h3>Top 10 Cult-Favorite Skincare Products at Olive Young</h3>
+<p>Ten skincare picks, indicative prices and Korean names to show staff.</p>
+<b>Read the guide →</b>
+</a>
+<a class="card" href="olive-young-tax-refund-and-shopping-guide.html">
+<div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1400&amp;q=85" alt="An assortment of skincare and beauty products" loading="lazy"></div>
+<span>01 / SHOP SMARTER</span>
+<h3>Olive Young Tax Refund &amp; Shopping Formula</h3>
+<p>Passport, refund questions, and a practical shopping checklist.</p>
+<b>Read guide →</b>
+</a>
+<a class="card" href="korean-skincare-flashcards.html">
+<div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1400&amp;q=85" alt="A skincare cleanser tube" loading="lazy"></div>
+<span>02 / SHOW TO STAFF</span>
+<h3>Skincare Shopping Korean Flashcards</h3>
+<p>Useful phrases for your skin type and shopping questions.</p>
+<b>Open flashcards →</b>
+</a>
+<a class="card" href="articles.html">
+<div class="card-img-wrapper"><img class="card-img" src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=1400&amp;q=85" alt="Skincare bottles and jars" loading="lazy"></div>
+<span>03 / THE ARCHIVE</span>
+<h3>All Seoul Glow Guides</h3>
+<p>Every checklist and guide on the site, newest first.</p>
+<b>Browse all guides →</b>
+</a>
+</div>
+</section>
+<section class="wrap" id="converter">
+<div class="converter">
+<p class="eyebrow">THE TRAVEL TOOLKIT</p>
+<h2>Currency converter</h2>
+<p>Indicative rates, not the rate your card or exchange counter will charge.</p>
+<div class="currency">
+<label>Amount <input id="amount" type="number" min="0" step="any" value="10000"></label>
+<label>From <select id="from">
+<option>KRW</option>
+<option>USD</option>
+<option>JPY</option>
+</select>
+</label>
+<label>To <select id="to">
+<option>USD</option>
+<option>KRW</option>
+<option>JPY</option>
+</select>
+</label>
+<button id="swap" type="button">⇄ Swap</button>
+</div>
+<p id="result" aria-live="polite">Loading rates…</p>
+<small id="rate-note"></small>
+</div>
+</section>
+<section class="wrap" id="latest">
+<p class="eyebrow">FRESH FROM SEOUL</p>
+<h2>Latest guides</h2>
+<div id="post-list">
+<!-- POSTS_START --><ul><li><a href="posts/2026-11-19.html">Ampoule: a Seoul shopping checklist</a> · 2026-11-19</li></ul><!-- POSTS_END -->
+</div>
+<p><a href="articles.html">Browse all guides →</a></p>
+</section>
+<section class="wrap" id="faq">
+<h2>Frequently asked questions</h2>
+<details>
+<summary>Can tourists get a tax refund at Olive Young?</summary>
+<p>Eligible visitors may be able to claim a refund on qualifying purchases at participating stores. Bring your passport and confirm current rules and minimums with the store and Korean customs.</p>
+</details>
+<details>
+<summary>How do I ask for skincare help in Korea?</summary>
+<p>Show store staff a Korean flashcard describing your skin type and the product you need.</p>
+</details>
+<details>
+<summary>Is this site affiliated with Olive Young?</summary>
+<p>No. Seoul Glow Guide is an independent travel resource. Store policies, prices and product availability change, so confirm details with the store.</p>
+</details>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<p class="foot-links"><a href="./index.html">Home</a> · <a href="./articles.html">All guides</a> · <a href="./about.html">About</a> · <a href="./contact.html">Contact</a> · <a href="./privacy.html">Privacy Policy</a></p>
+<p>✿ Seoul Glow Guide · Independent traveler resource. Not affiliated with Olive Young. Information can change; confirm details with official sources.</p>
+</div>
+</footer>
+<script>const amount=document.querySelector('#amount'),from=document.querySelector('#from'),to=document.querySelector('#to'),result=document.querySelector('#result'),note=document.querySelector('#rate-note');let rates=null;function calculate(){if(!rates)return;let n=Number(amount.value);result.textContent=Number.isFinite(n)&&n>=0?`${new Intl.NumberFormat(undefined,{maximumFractionDigits:2}).format(n*rates[to.value]/rates[from.value])} ${to.value}`:'Enter a valid amount.'}fetch('https://open.er-api.com/v6/latest/KRW').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(d.result!=='success'||!d.rates?.USD||!d.rates?.JPY)throw Error();rates=d.rates;note.textContent='Indicative rates via ExchangeRate-API · updated '+d.time_last_update_utc;calculate()}).catch(()=>{result.textContent='Rates unavailable. Please try again later.'});[amount,from,to].forEach(e=>e.addEventListener('input',calculate));document.querySelector('#swap').addEventListener('click',()=>{let x=from.value;from.value=to.value;to.value=x;calculate()});document.querySelector('#language').addEventListener('change',e=>{if(e.target.value!=='en')location.href='https://translate.google.com/translate?sl=en&tl='+encodeURIComponent(e.target.value)+'&u='+encodeURIComponent(location.href)});</script>
+</body>
+</html>
