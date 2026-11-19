@@ -15,7 +15,7 @@ footer p{margin:.35rem 0}
 @media(max-width:700px){
  .nav{flex-wrap:wrap;min-height:0;padding:12px 0;gap:10px 12px}
  .brand{font-size:1.32rem;margin-right:auto}
- .nav nav{order:2;gap:12px;font-size:.88rem}
+ .nav nav{order:2;width:auto;flex:1 1 auto;min-width:0;gap:10px;font-size:.86rem}
  .nav .lang{order:3;margin-left:auto;font-size:.8rem}
  .nav .lang select{padding:5px 6px;font-size:.8rem;max-width:104px}
  .hero{padding:48px 0}
