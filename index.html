@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Seoul Glow Guide | K-Beauty for Travelers</title>
-<link rel="stylesheet" href="style.css?v=20261120c">
+<link rel="stylesheet" href="style.css?v=20261120d">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can tourists get a tax refund at Olive Young?","acceptedAnswer":{"@type":"Answer","text":"Eligible visitors may be able to claim a refund on qualifying purchases at participating stores. Bring your passport and confirm current rules and minimums with the store and Korean customs."}},{"@type":"Question","name":"How do I ask for skincare help in Korea?","acceptedAnswer":{"@type":"Answer","text":"Show store staff a Korean flashcard describing your skin type and the product you need."}}]}</script><meta name="description" content="A practical K-beauty and Olive Young guide for Seoul visitors: what to buy, how tax refunds work and Korean phrases to show store staff."><link rel="canonical" href="https://jinyou1129-bit.github.io/seoul-glow-guide/"><meta property="og:type" content="website"><meta property="og:site_name" content="Seoul Glow Guide"><meta property="og:locale" content="en_US"><meta property="og:title" content="Seoul Glow Guide | K-Beauty for Travelers"><meta property="og:description" content="A practical K-beauty and Olive Young guide for Seoul visitors: what to buy, how tax refunds work and Korean phrases to show store staff."><meta property="og:url" content="https://jinyou1129-bit.github.io/seoul-glow-guide/"><meta property="og:image" content="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Seoul Glow Guide | K-Beauty for Travelers"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Seoul Glow Guide | K-Beauty for Travelers"><meta name="twitter:description" content="A practical K-beauty and Olive Young guide for Seoul visitors: what to buy, how tax refunds work and Korean phrases to show store staff."><meta name="twitter:image" content="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"></head>
 <body>
 <header>
@@ -98,6 +98,52 @@
 <small id="rate-note"></small>
 </div>
 </section>
+<section class="wrap" id="routine-matcher">
+<div class="beauty-tool" aria-labelledby="routine-title">
+<p class="eyebrow">YOUR 3-SECOND BEAUTY MATCH</p><h2 id="routine-title">My K-Beauty Routine Matcher</h2>
+<p class="tool-subtitle" lang="ko">올리브영 3초 맞춤 스킨케어 루틴 파인더</p>
+<p>Choose your skin type, concern and budget for a three-step shopping starting point.</p>
+<form id="routine-form"><div class="tool-fields">
+<label>Skin Type <select id="skin-type"><option value="dry">Dry (건성)</option><option value="oily">Oily (지성)</option><option value="combination">Combination (복합성)</option><option value="sensitive">Sensitive (민감성)</option></select></label>
+<label>Skin Concern <select id="skin-concern"><option value="hydration">Dehydration (속건조)</option><option value="soothing">Acne &amp; Redness (진정)</option><option value="glow">Glass Skin Glow (미백/광채)</option></select></label>
+<label>Budget <select id="routine-budget"><option value="budget">Budget-friendly (&lt;₩35k)</option><option value="premium">Premium Full Set (₩50k+)</option></select></label>
+</div><button type="submit">Find My Routine</button></form>
+<div id="routine-result" class="tool-results" aria-live="polite" hidden></div>
+<p class="tool-disclaimer">Editorial suggestions, not medical advice. Check ingredients and patch-test; stop if irritated. Finish your daytime routine with sunscreen. Prices are indicative, not live quotes; sale packs and in-store availability vary.</p>
+</div></section>
+<section class="wrap" id="tax-refund"><div class="beauty-tool" aria-labelledby="tax-title">
+<p class="eyebrow">SHOP SMARTER</p><h2 id="tax-title">Olive Young Instant Tax Refund Calculator</h2>
+<p class="tool-subtitle" lang="ko">올리브영 현장 면세 환급 계산기</p>
+<label class="tax-field">Shopping amount (KRW) <input id="tax-amount" type="number" min="0" step="1" inputmode="numeric" value="80000"></label>
+<div id="tax-result" class="tool-results" aria-live="polite"></div>
+<p><strong>Must bring passport to get immediate tax refund on purchases ₩15,000+.</strong> Eligible visitors only; ask a participating store before paying.</p>
+<p class="tool-disclaimer">Estimates use 6–8%, not an official refund schedule. Actual refunds depend on the receipt, fees and eligibility. Immediate refunds require each payment to be below ₩1,000,000 and are subject to trip limits and customs rules. <a href="https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=140736">Check the Korea Tourism Organization guide</a>.</p>
+</div></section>
+<script>
+(()=>{
+const won=n=>'₩'+Math.round(n).toLocaleString('en-US');
+const link=id=>'https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo='+id;
+const picks={
+ combo:{name:'TONYMOLY Ceramide Mochi Toner 500ml + cream 30ml',ko:'토니모리 세라마이드 모찌 토너 500ml + 크림 30ml',price:14400,url:link('A000000258792')},
+ centella:{name:'SKIN1004 Madagascar Centella Ampoule 55ml',ko:'스킨1004 마다가스카르 센텔라 앰플 55ml',price:18000,url:link('A000000161581')},
+ toner:{name:'Anua Heartleaf 77 Hyaluronic Soothing Toner 350ml',ko:'아누아 어성초 77 히알루론산 수분 진정 토너 350ml',price:22800,url:link('A000000252696')},
+ serum:{name:'Torriden DIVE-IN Serum 50ml',ko:'토리든 다이브인 저분자 히알루론산 세럼 50ml',price:22000,url:link('A000000258298')},
+ cream:{name:'Dr.G Red Blemish Clear Soothing Cream EX 70ml set',ko:'닥터지 레드 블레미쉬 클리어 수딩 크림 EX 70ml 기획',price:26220,url:link('A000000255752')},
+ rich:{name:'Illiyoon Ceramide Ato Concentrate Cream 150ml',ko:'일리윤 세라마이드 아토 집중크림 150ml',price:9900,url:link('A000000217766')}
+};
+const typeTips={dry:'A richer cream may suit dry skin.',oily:'Lighter textures may feel more comfortable on oily skin.',combination:'Apply a little more moisturizer to dry areas.',sensitive:'Introduce one product at a time and check ingredients carefully.'};
+const concernTips={hydration:'Hydration is the focus.',soothing:'A gentle, soothing-focused starting point; it is not an acne treatment.',glow:'Hydration can help create a dewy look; it does not guarantee brightening.'};
+const item=(step,p,price)=>`<article class="routine-step"><h3>${step}</h3><p><a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.name} ↗</a></p><p lang="ko">${p.ko}</p><strong>${price}</strong></article>`;
+const form=document.querySelector('#routine-form'),out=document.querySelector('#routine-result');
+form.addEventListener('submit',e=>{e.preventDefault();const type=document.querySelector('#skin-type').value,concern=document.querySelector('#skin-concern').value,budget=document.querySelector('#routine-budget').value;let cards,total,extra='';
+if(budget==='budget'){cards=item('1 · Toner',picks.combo,'~'+won(picks.combo.price)+' for toner + cream set')+item('2 · Serum',picks.centella,'~'+won(picks.centella.price))+item('3 · Cream',picks.combo,'Included in toner set');total=picks.combo.price+picks.centella.price;extra='This value routine uses a limited promotional toner + mini cream set for all skin types; check that it suits you and is still available.';}
+else{const serum=(type==='sensitive'||concern==='soothing')?picks.centella:picks.serum;const cream=(type==='dry'||type==='sensitive')?picks.rich:picks.cream;cards=item('1 · Toner',picks.toner,'~'+won(picks.toner.price))+item('2 · Serum',serum,'~'+won(serum.price))+item('3 · Cream',cream,'~'+won(cream.price));total=picks.toner.price+serum.price+cream.price;}
+out.innerHTML='<h3>Your 3-step routine</h3><p>'+typeTips[type]+' '+concernTips[concern]+'</p><div class="routine-steps">'+cards+'</div><p><strong>Estimated total: ~'+won(total)+'</strong></p><p class="tool-disclaimer">'+extra+' Indicative online prices and promotions may differ in store; confirm sizes, stock and current prices at Olive Young.</p>';out.hidden=false;});
+const tax=document.querySelector('#tax-amount'),result=document.querySelector('#tax-result');
+function calc(){const value=tax.value,n=Number(value);if(value===''||!Number.isFinite(n)||n<0||!Number.isInteger(n)){result.textContent='Enter a valid non-negative whole-won amount.';return;}if(n<15000){result.textContent='Below ₩15,000: this purchase does not meet the minimum per receipt for a tax refund.';return;}if(n>=1000000){result.textContent='Immediate tax refund is not available for a single payment of ₩1,000,000 or more. Ask the store about other refund options.';return;}const lo=Math.round(n*.06),hi=Math.round(n*.08);result.innerHTML='<div class="tax-numbers"><p>Estimated refund (6–8%)<strong>'+won(lo)+'–'+won(hi)+'</strong></p><p>Estimated price after refund<strong>'+won(n-hi)+'–'+won(n-lo)+'</strong></p></div>';}
+tax.addEventListener('input',calc);calc();
+})();
+</script>
 <section class="wrap" id="latest">
 <p class="eyebrow">FRESH FROM SEOUL</p>
 <h2>Latest guides</h2>
