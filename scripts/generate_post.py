@@ -147,10 +147,10 @@ def main():
 
     pages = ['', 'top-10-olive-young-skincare-must-buys.html', 'olive-young-tax-refund-and-shopping-guide.html',
              'korean-skincare-flashcards.html', 'articles.html', 'about.html', 'contact.html', 'privacy.html']
-    pages += ['posts/' + name for name, _ in entries]
+    pages += ['best-olive-young-korean-sunscreens-guide.html', 'best-olive-young-toner-pads-guide.html', 'kpop-idol-skincare-and-makeup-guide.html'] + ['posts/' + name for name, _ in entries]; lastmods = {u.findtext('{http://www.sitemaps.org/schemas/sitemap/0.9}loc'): u.findtext('{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod') for u in __import__('xml.etree.ElementTree', fromlist=['parse']).parse(ROOT / 'sitemap.xml').getroot() if u.findtext('{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod')}
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-           + ''.join(f'<url><loc>{BASE}{page}</loc></url>\n' for page in pages)
+           + ''.join(f'<url><loc>{BASE}{page}</loc><lastmod>{day.isoformat() if page in ("", "articles.html", rel) else lastmods.get(BASE + page, day.isoformat())}</lastmod></url>\n' for page in pages)
            + '</urlset>\n')
     (ROOT / 'sitemap.xml').write_text(xml, encoding='utf-8')
     try:
